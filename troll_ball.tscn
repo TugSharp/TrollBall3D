@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://ghjkt25vkf4b"]
+
+[ext_resource type="Texture2D" uid="uid://c2blmjre6rabu" path="res://textures/trollface.png" id="1_53u2b"]
+[ext_resource type="Script" path="res://character_body_3d.gd" id="1_p2m5v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wogyh"]
+albedo_texture = ExtResource("1_53u2b")
+
+[sub_resource type="SphereMesh" id="SphereMesh_opocp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gd6hu"]
+
+[node name="TrollBall" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.766305, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_p2m5v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+material_override = SubResource("StandardMaterial3D_wogyh")
+mesh = SubResource("SphereMesh_opocp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_gd6hu")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, -1.91764e-08, 0.975646, 0.219352, 8.52937e-08, 0.219352, -0.975646, 0, 0.549622, -2.27821)
+fov = 90.0

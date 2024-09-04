@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://bpxpw0f8hkfy6"]
+[gd_scene load_steps=5 format=3 uid="uid://bpxpw0f8hkfy6"]
+
+[ext_resource type="Material" uid="uid://cd2ih00ivv8aa" path="res://textures/trollmat.tres" id="1_ams6p"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g7nb6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jqbut"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_2ifha"]
 
 [node name="Level" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_g7nb6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+material_override = ExtResource("1_ams6p")
+mesh = SubResource("PlaneMesh_jqbut")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.283908, -0.636387, -0.717222, 0.412396, -0.756326, 0.507839, -0.865636, -0.1516, 0.477171, 0, 10.8689, 0)
+shadow_enabled = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(7.75717, 0, 2.05682, 0, 1.63917, 0, -5.07267, 0, 3.1453, -12.4, 0.827871, -3.50693)
+use_collision = true
+mesh = SubResource("PrismMesh_2ifha")
+material = ExtResource("1_ams6p")

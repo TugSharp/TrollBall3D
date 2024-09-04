@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc6xugd1ev7r"]
+
+[ext_resource type="PackedScene" uid="uid://bpxpw0f8hkfy6" path="res://level.tscn" id="1_1sgbo"]
+[ext_resource type="PackedScene" uid="uid://ghjkt25vkf4b" path="res://troll_ball.tscn" id="2_vdivn"]
+
+[node name="main" type="Node3D"]
+
+[node name="Level" parent="." instance=ExtResource("1_1sgbo")]
+
+[node name="TrollBall" parent="." instance=ExtResource("2_vdivn")]
